@@ -24,9 +24,9 @@ myButLast (_ : xs) = myButLast xs
 elementAt :: [a] -> Int -> a
 elementAt [] _ = error "Empty List"
 elementAt (x : xs) n
-    | n < 1 || n > (length xs + 1) = error "Out of bounds"
-    | n > 1 = elementAt xs (n - 1)
-    | otherwise = x
+  | n < 1 || n > (length xs + 1) = error "Out of bounds"
+  | n > 1 = elementAt xs (n - 1)
+  | otherwise = x
 
 -- Problem 4
 myLength :: [a] -> Int
@@ -63,18 +63,18 @@ compress (x : xs) = if x == myFirst xs then compress xs else x : compress xs
 pack :: (Eq a) => [a] -> [[a]]
 pack [] = []
 pack (x : xs) = pack' xs [x]
-  where
-    pack' :: (Eq a) => [a] -> [a] -> [[a]]
-    pack' [] current = [current]
-    pack' (y : ys) current@(z : _)
-        | y == z = pack' ys (y : current)
-        | otherwise = current : pack' ys [y]
+ where
+  pack' :: (Eq a) => [a] -> [a] -> [[a]]
+  pack' [] current = [current]
+  pack' (y : ys) current@(z : _)
+    | y == z = pack' ys (y : current)
+    | otherwise = current : pack' ys [y]
 
 -- Problem 10
 encode :: (Eq a) => [a] -> [(Int, a)]
 encode [] = []
 encode lst = encode' $ pack lst
-  where
-    encode' :: [[a]] -> [(Int, a)]
-    encode' [y] = [(myLength y, myFirst y)]
-    encode' (y : ys) = (myLength y, myFirst y) : encode' ys
+ where
+  encode' :: [[a]] -> [(Int, a)]
+  encode' [y] = [(myLength y, myFirst y)]
+  encode' (y : ys) = (myLength y, myFirst y) : encode' ys

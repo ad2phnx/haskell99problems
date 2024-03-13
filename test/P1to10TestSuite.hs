@@ -8,16 +8,16 @@ p1to10TestSuite :: TestTree
 p1to10TestSuite =
   testGroup
     "Pr. 1-10"
-    [ myLastTestSuite,
-      myButLastTestSuite,
-      elementAtTestSuite,
-      myLengthTestSuite,
-      myReverseTestSuite,
-      isPalindromeTestSuite,
-      flattenTestSuite,
-      compressTestSuite,
-      packTestSuite,
-      encodeTestSuite
+    [ myLastTestSuite
+    , myButLastTestSuite
+    , elementAtTestSuite
+    , myLengthTestSuite
+    , myReverseTestSuite
+    , isPalindromeTestSuite
+    , flattenTestSuite
+    , compressTestSuite
+    , packTestSuite
+    , encodeTestSuite
     ]
 
 -- 1. test suite

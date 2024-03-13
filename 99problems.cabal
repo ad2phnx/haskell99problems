@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       P1to10
+      P11to20
   other-modules:
       Paths_99problems
   autogen-modules:
@@ -41,6 +42,7 @@ test-suite 99problems-test
   main-is: Spec.hs
   other-modules:
       P1to10TestSuite
+      P11to20TestSuite
       Paths_99problems
   autogen-modules:
       Paths_99problems

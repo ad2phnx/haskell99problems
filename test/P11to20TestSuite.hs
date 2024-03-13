@@ -14,6 +14,10 @@ p11to20TestSuite =
     , dupliTestSuite
     , repliTestSuite
     , dropEveryTestSuite
+    , splitTestSuite
+    , sliceTestSuite
+    , rotateTestSuite
+    , removeAtTestSuite
     ]
 
 -- 11. test suite
@@ -77,3 +81,54 @@ dropEveryElemList =
       []
       "abdeghk"
       (dropEvery "abcdefghik" 3)
+
+-- 17. test suite
+splitTestSuite :: TestTree
+splitTestSuite = testGroup "Problem 17" [splitElemList]
+
+splitElemList =
+  testCase "split a char list" $
+    assertEqual
+      []
+      ("abc", "defghik")
+      (split "abcdefghik" 3)
+
+-- 18. test suite
+sliceTestSuite :: TestTree
+sliceTestSuite = testGroup "Problem 18" [sliceElemList]
+
+sliceElemList =
+  testCase "slice a char list" $
+    assertEqual
+      []
+      "cdefg"
+      (slice ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] 3 7)
+
+-- 19. test suite
+rotateTestSuite :: TestTree
+rotateTestSuite = testGroup "Problem 19" [rotateElemList, revRotateElemList]
+
+rotateElemList =
+  testCase "rotate a char list" $
+    assertEqual
+      []
+      "defghabc"
+      (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3)
+
+revRotateElemList =
+  testCase "rotate a char list" $
+    assertEqual
+      []
+      "ghabcdef"
+      (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] (-2))
+
+-- 20. test suite
+removeAtTestSuite :: TestTree
+removeAtTestSuite = testGroup "Problem 20" [removeAtElemList]
+
+removeAtElemList =
+  testCase "removeAt a char list" $
+    assertEqual
+      []
+      ('b', "acd")
+      (removeAt 2 ['a', 'b', 'c', 'd'])
